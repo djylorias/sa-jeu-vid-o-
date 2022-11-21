@@ -2,15 +2,36 @@ class HelloWord extends Program{
     
     final int TailleMenu = 20;
 
-    void afficherIdentifieur(){
+    void initialiserIdentifieur(char[][] identifieur){
         for(int i=0; i<TailleMenu; i++){
-            if(i==0 || i==TailleMenu){
-                print("|")
+            for(int j=0; j<TailleMenu; j++){
+                identifieur[i][j]='╳';
             }
         }
     }
 
+    String creerLigne(char c){
+        String ligne = "";
+        for(int i=0; i<TailleMenu; i++){
+            ligne+=c;
+        }
+        return ligne;
+    }
+
+    void afficherIdentifieur(char[][] identifieur){
+        String menu = "";
+        for(int i=0; i<TailleMenu; i++){
+            for(int j=0; j<TailleMenu; j++){
+                menu += identifieur[i][j];
+            }
+            menu+="\n";
+        }
+        println(menu);
+    }
+
     void algorithm(){
-        print("")
+        char[][] identifieur = new char[TailleMenu][TailleMenu];
+        initialiserIdentifieur(identifieur);
+        afficherIdentifieur(identifieur);
     }
 }
