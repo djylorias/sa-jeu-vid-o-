@@ -10,12 +10,29 @@ class HelloWord extends Program{
         }
     }
 
-    String creerLigne(char c){
-        String ligne = "";
-        for(int i=0; i<TailleMenu; i++){
-            ligne+=c;
+    void insérerLigneHorizontale(char[][] menu, int x, int y, int longueur, char c){
+        int max = x+longueur;
+        for(int i=x; i<max; i++){
+            menu[y][i] = c;
         }
-        return ligne;
+    }
+
+    void insérerLigneHorizontale(char[][] menu, int x, int y, int longueur, char c){
+        int max = x+longueur;
+        for(int i=x; i<max; i++){
+            menu[i][y] = c;
+        }
+    }
+    
+    void insérerBordure(char[][] menu, int debut, int xmax, int ymax, char c){
+        char vertical = '';
+        char coinHautGauche = '';
+        char coinHautDroit = '';
+        char coinBasGauche = '';
+        char coinBasDroit = '';
+        if(c=='═'){
+            vertical = ''
+        }
     }
 
     void afficherIdentifieur(char[][] identifieur){
@@ -32,6 +49,9 @@ class HelloWord extends Program{
     void algorithm(){
         char[][] identifieur = new char[TailleMenu][TailleMenu];
         initialiserIdentifieur(identifieur);
+        afficherIdentifieur(identifieur);
+        println("------------------------------------");
+        insérerLigneHorizontale(identifieur, 4, 4, TailleMenu-8, '═');
         afficherIdentifieur(identifieur);
     }
 }
